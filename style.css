@@ -1,0 +1,89 @@
+*{
+	margin: 0;
+	padding: 0;
+	
+}
+.container{
+	height: 100vh;
+	width: 100%;
+	background-image: url(img/smart.jpg); 
+	background-position: center;
+	background-size: cover;
+	padding-left: 5%;
+	padding-right: 5%;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.navbar{
+	width: 100%;
+	height: 15vh;
+	margin: auto;
+	display: flex;
+	align-items:center;
+}
+.cart{
+	width: 40px;
+	cursor: pointer;
+}
+nav{
+	flex: 1;
+	padding-left: 10px;
+}
+nav ul li{
+	display: inline-block;
+	list-style:none;
+	margin: 0px 30px;
+}
+
+nav ul li a{
+	text-decoration: none;
+	color: black;
+}
+.content h1{
+	font-size: 60px;
+	font-weight: 100;
+	margin-top: 40px;
+	margin-left: -20px;
+	margin-bottom: 15px
+	color: black;
+}
+.content a{
+	text-decoration: none;
+	color:#DEDFE3;
+	margin-left: -20px;
+}
+.content p{
+	font-size: 23px;
+	font-weight: 520;
+	color: #0E4EF1;
+	margin-left: -45px;
+	margin-top: 250px;
+
+}
+.content .btn{
+	display: inline-block;
+	background: linear-gradient(45deg,#87adfe, #4f73f8);
+	border-bottom-left-radius: 6px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	text-decoration: none;
+	color: white;
+	box-shadow: 3px 8px 22px(94,28,68,0.15);
+
+}
+.content {
+	margin-left: 9%;
+	margin-top: -5%;
+}
+.social-links{
+	transform: rotate(-90deg);
+	position: absolute;
+	left:-80px;
+	bottom: 180px;
+}
+.social-links a{
+	text-decoration: none;
+	color: #0E4EF1;
+	padding-right: 20px;
+	font-size: 14px;
