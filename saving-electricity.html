@@ -2,24 +2,26 @@
 <head>
 	<title>SMART ENERGY</title>
 	<link rel= "stylesheet" href= "style.css">
+	<script src="store.js" async> </script>
 	<meta website= "smartenergy"  content="an online store for products that provide electricity consumption audit">
 
 </head>
 <body>
-	<div class= "container">
 		<div class= "navbar">
 			<nav>
 				<ul>
-					<li><a href="">Home</a></li>
-					<li><a href="">About</a></li>
-					<li><a href="">Products</a></li>
-					<li><a href="">Contact us</a></li>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#products">Products</a></li>
+					<li><a href="#contact">Contact us</a></li>
 				</ul>
 			</nav>
 			<img src="cart.png" class="cart" alt="cart">	
 	</div>
+	<div class= "container">
 
-	<div class= "content">
+
+	<div class= "content" id="home">
 		<h1> SMART ENERGY</h1>
 		<a href="" class="btn">SHOP NOW</a>
 
@@ -40,6 +42,51 @@ save you</br> money and create a sustainable environment</br>  by simply saving 
 		<a href="">INSTAGRAM</a>
 		<a href="">TWITTER</a>
 	</div>
+
+</div>
+
+<div id="about">
+
+</div>
+
+
+<div id="products">
+    <div class="shop-item">
+        <span class="shop-item-title">Product Title Here</span>
+		<img src="placeholder.png", width=400px, CLASS="TextWrap">
+        <div class="shop-item-details">
+            <span class="shop-item-price">$120.99</span>
+			<span class="shop-item-code">86356</span>
+            <button class="itemCartButton" type="button">ADD TO CART</button>
+                    </div>
+</div>
+</div>
+
+
+
+<div>
+ <section class="cart-section">
+            <h2 class="section-header">CART</h2><br><br>
+            <div class="cart-row">
+				<span class="cart-item-code-column-header">ITEM CODE</span>
+                <span class="cart-item-coloumn-header">ITEM</span>
+                <span class="cart-price-coloumn-header">PRICE</span>
+                <span class="cart-quantity-coloumn-header">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+                
+                </div>
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0.00</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        </section>
+
+</div>
+
+<div id="contact">
 
 </div>
 
