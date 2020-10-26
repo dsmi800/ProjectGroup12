@@ -7,7 +7,7 @@ else {
 
 function ready() {
 	let removeItemFromCardButtons = document.getElementsByClassName("remove-button")
-	console.log(removeItemFromCardButtons)
+	
 	for (let i = 0; i < removeItemFromCardButtons.length; i++) {
 		let button = removeItemFromCardButtons[i]
 		button.addEventListener('click', removeCartItem)
@@ -24,18 +24,81 @@ function ready() {
 		let button = addToCartButtons[i]
 		button.addEventListener("click", addToCartClicked)
 }
-	document.getElementsByClassName('btn-purchase')[0].addEventListener('click',purchaseClicked)
+	
+	const form =document.querySelector("#orderForm")
+	form.addEventListener('submit', (e) => {
+	e.preventDefault();
+	submitOrder(form,modal)})
 
+
+	// Get the modal
+	let modal = document.getElementById("myModal");
+	console.log(modal)
+	// Get the button that opens the modal
+	let btn = document.getElementById("myBtn");
+	console.log(btn)
+	// Get the <span> element that closes the modal
+	let span = document.getElementsByClassName("close")[0];
+	
+		// When the user clicks on the button, open the modal
+	btn.onclick = function() {
+	  modal.style.display = "block";
+	}
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	  modal.style.display = "none";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+		modal.style.display = "none";
+	  }
+	}
 }
 
-function purchaseClicked() {
-	// Add form here in a pop up window 
+
+
+function submitOrder(form,modal) {
+	let returnedObject = updateCartTotal()
+	let cartItems = returnedObject[0]
+	let itemCode = cartItems.itemCode
+	let itemName = cartItems.itemTitle
+	let quantity = cartItems.quantity
+	let total = returnedObject[1]
+
+	let object = {
+		date: new Date(),
+        name: form.name.value,
+		phoneNumber: form.phoneNumber.value,
+		email: form.email.value,
+		SALine1: form.SALine1.value,
+		SALine2: form.SALine2.value,
+		SACity: form.SACity.value,
+		SAPostcode: form.SAPostcode.value,
+		Total: total,
+		QuantityofItem: quantity,
+		ItemCode: itemCode,
+		ItemName: itemName
+    }
+	console.log(object)
+    database.collection('Orders').add(object)
+	form.reset()
+	modal.style.display = "none"
+	document.body.scrollTop = document.documentElement.scrollTop = 0;
+	completeOrder()
+}
+
+function completeOrder(){
 	alert("Thank you for your purchase we'll be in contact to arrange payment and delivery.")
 	let cartItems = document.getElementsByClassName('cart-items')[0]
+	console.log(cartItems)
 	while (cartItems.hasChildNodes()) {
 		cartItems.removeChild(cartItems.firstChild)
 	}
 	updateCartTotal()
+
 }
 
 function removeCartItem(event) {
@@ -48,16 +111,24 @@ function updateCartTotal() {
     let cartItemContainer = document.getElementsByClassName('cart-items')[0]
     let cartRows = cartItemContainer.getElementsByClassName('cart-row')
     let total = 0
+	let itemsObject = []
     for (let i = 0; i < cartRows.length; i++) {
         let cartRow = cartRows[i]
         let priceElement = cartRow.getElementsByClassName('cart-price')[0]
         let quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+		let itemCodeElement = cartRow.getElementsByClassName('cart-item-code-title')[0]
+		let itemTitleElement = cartRow.getElementsByClassName('cart-item-title')[0]
         let price = parseFloat(priceElement.innerText.replace('$', ''))
         let quantity = quantityElement.value
+		let itemTitle = itemTitleElement.innerHTML
+		let itemCode = itemCodeElement.innerHTML
         total = total + (price * quantity)
+		itemsObject.push({itemTitle: itemTitle, itemCode: itemCode, quantity: quantity, Price:price})
     }
     total = Math.round(total * 100) / 100 //round total to 2 dp
-    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+    itemsObject.push(total)
+	document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+	return itemsObject
 }
 
 function quantityChanged(event) {
@@ -109,3 +180,4 @@ function addItemToCart(title, price, code) {
 	cartRow.getElementsByClassName('cart-quantity')[0].addEventListener('change', quantityChanged)
 	
 }
+
