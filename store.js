@@ -83,7 +83,7 @@ function ready() {
 	  }
 	
 }
-
+}
 /**
 
  This function is run after any add to cart button is clicked. It gets the 
