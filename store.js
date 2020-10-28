@@ -143,6 +143,7 @@ function quantityChanged(event) {
 function addToCartClicked(event) {
    let button = event.target
     let shopItem = button.parentElement.parentElement
+	console.log(shopItem)
     let title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     let price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
 	let code = shopItem.getElementsByClassName('shop-item-code')[0].innerText
