@@ -29,6 +29,7 @@
 	left: 0;
 	z-index: 9999;
 	background-color: white;
+	font-weight: bold;
 }
 
 .allcontent {
@@ -64,7 +65,7 @@
 .cart{
 	width: 60px;
 	cursor: pointer;
-	padding-right: 20px;
+	padding-right: 50px;
 }
 
 nav{
@@ -136,7 +137,15 @@ nav ul li a{
 	padding: 30px;
 }
 
+.contact {
+	background-color:white;
+	padding: 50px;
+}
 
+.about {
+	background-color:white;
+	padding: 30px;
+}
 
 .TextWrap {
 	float:right;
@@ -319,11 +328,10 @@ input[type=text] {
   cursor: pointer;
 }
 
-footer {
-  text-align: center;
-  padding: 3px;
-  background-color: white;
-  color: black;
-  margin-bottom: : 400;
 
- }
+
+
+
+
+
+
