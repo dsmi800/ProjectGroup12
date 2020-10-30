@@ -87,7 +87,7 @@ nav{
 	font-weight: 100;
 	margin-top: 15vh;
 	margin-left: -20px;
-	margin-bottom: 15px
+	margin-bottom: 15px;
 	color: black;
 }
 .content a{
@@ -162,6 +162,7 @@ input[type=text] {
 	border-radius: 6px;
 	color: grey;
 	border: 1px solid grey;
+	text-align: left;
 	
 }
 
@@ -328,8 +329,66 @@ input[type=text] {
   cursor: pointer;
 }
 
+.rating {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	text-align: left;
+  }
+.rating > span {
+	display: inline-block;
+	position: relative;
+	width: 1.1em;
+  }
+  .rating > span:hover:before,
+  .rating > span:hover ~ span:before {
+	content: "\2605";
+	position: absolute;
+  }
+  
+  /* Style the button that is used to open and close the collapsible content */
+  .collapsible {
+	background-color: #eee;
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+	background-color: #ccc;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+	padding: 0 18px;
+	background-color: white;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+  }
+  
+  .collapsible:after {
+	content: '\02795'; /* Unicode character for "plus" sign (+) */
+	font-size: 13px;
+	color: white;
+	float: right;
+	margin-left: 5px;
+  }
+  
+  .active:after {
+	content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+  
 
-
+#reviewList {
+	text-align: left;
+	margin-top: 100px;
+}
 
 
 
